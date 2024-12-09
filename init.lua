@@ -782,6 +782,10 @@ require('lazy').setup({
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
+      -- gc - comment
+      -- gcc - Comment on current line
+      require('mini.comment').setup()
+
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
@@ -821,6 +825,7 @@ require('lazy').setup({
         'vimdoc',
         'javascript',
         'typescript',
+        'gitcommit',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
@@ -862,7 +867,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the

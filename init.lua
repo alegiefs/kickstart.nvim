@@ -118,6 +118,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.filetype.add {
+  extension = {
+    jinja = 'jinja',
+    jinja2 = 'jinja',
+    j2 = 'jinja',
+    sls = 'jinja',
+  },
+}
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -531,7 +540,6 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         ts_ls = {},
         --
-
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -546,6 +554,7 @@ require('lazy').setup({
             },
           },
         },
+        jinja_lsp = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -826,6 +835,8 @@ require('lazy').setup({
         'javascript',
         'typescript',
         'gitcommit',
+        'make',
+        'regex',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,

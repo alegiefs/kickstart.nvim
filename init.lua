@@ -1,11 +1,9 @@
 -- If you experience any errors while trying to install kickstart, run `:checkhealth` for more info.
--- You need to install tree-sitter cli tool. On Windows you can use scoop. 
+-- You need to install tree-sitter cli tool. On Windows you can use scoop.
 -- Tree-sitter will require cl.exe tool to be installed in windows to compile languages.
 -- To install cl.exe you need to install build tools for Visual Studio for C++.
--- Then search where cl.exe is stored and set it as an Environment Variable. 
+-- Then search where cl.exe is stored and set it as an Environment Variable.
 -- Sample location could be: C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\VC\Tools\MSVC\14.51.36231\bin\Hostx64\x64.
-
-
 
 -- ============================================================
 -- SECTION 1: FOUNDATION
@@ -470,6 +468,12 @@ do
       -- Useful when you're not sure what type a variable is and you want to see
       -- the definition of its *type*, not where it was *defined*.
       vim.keymap.set('n', 'grt', builtin.lsp_type_definitions, { buffer = buf, desc = '[G]oto [T]ype Definition' })
+
+      -- Jump to all Incoming calls function under your cursos.
+      vim.keymap.set('n', '<leader>su', builtin.lsp_incoming_calls, { buffer = buf, desc = '[S]earch [U]Usages' })
+
+      -- Show all methods that this function is calling.
+      vim.keymap.set('n', '<leader>so', builtin.lsp_outgoing_calls, { buffer = buf, desc = '[S]earch [O]utgoing Calls' })
     end,
   })
 

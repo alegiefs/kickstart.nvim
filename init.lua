@@ -118,6 +118,17 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Turn on spellcheck on markdown and text files
+vim.api.nvim_create_autocmd('FileType', {
+  desc = 'Turn on spellcheck when opening Markdown or Text files',
+  group = vim.api.nvim_create_augroup('kickstart-spellcheck', { clear = true }),
+  pattern = { 'markdown', 'txt' },
+  callback = function()
+    vim.opt_local.spell = true
+    vim.opt_local.spelllang = 'en_gb'
+  end,
+})
+
 vim.filetype.add {
   extension = {
     jinja = 'jinja',
